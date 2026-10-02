@@ -1,0 +1,171 @@
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --danger: #dc2626;
+  --success: #16a34a;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  border: none;
+  text-align: left;
+  display: block;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ---------- Navbar ---------- */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 32px;
+  height: 60px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav strong { color: var(--primary); font-size: 20px; margin-right: 8px; }
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.nav a:hover { background: var(--bg); color: var(--text); }
+.nav span { color: var(--muted); font-size: 14px; }
+
+/* ---------- Layout ---------- */
+.page { max-width: 1100px; margin: 32px auto; padding: 0 24px; }
+.page h2 { margin: 0 0 20px; font-size: 26px; }
+.page h3 { margin: 24px 0 8px; }
+
+/* ---------- Cards and forms ---------- */
+.card {
+  width: 100%;
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 32px;
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.card h2 { margin: 0 0 4px; text-align: center; }
+.card p { margin: 0; color: var(--muted); }
+.page .card { max-width: none; margin: 20px 0; }
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79,70,229,.15);
+}
+textarea { min-height: 80px; resize: vertical; }
+
+button {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover { background: var(--primary-dark); }
+button:disabled { background: #c7c9d1; cursor: not-allowed; }
+.nav button { background: #ef4444; padding: 7px 14px; }
+.nav button:hover { background: #dc2626; }
+
+a { color: var(--primary); }
+
+/* ---------- Filter / add rows ---------- */
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 16px 0;
+  padding: 16px;
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+.row input, .row select { width: 190px; }
+.row > div { display: flex; flex-direction: column; gap: 4px; }
+
+/* ---------- Table ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  margin-top: 16px;
+}
+th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+th {
+  background: #f9fafb;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--muted);
+  user-select: none;
+}
+tbody tr:hover { background: #f9fafb; }
+td select { width: auto; padding: 6px 8px; margin-right: 6px; }
+td button { padding: 6px 12px; }
+
+/* ---------- Dashboard stats ---------- */
+.stats { display: flex; gap: 20px; flex-wrap: wrap; }
+.stat {
+  flex: 1;
+  min-width: 200px;
+  padding: 24px;
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  color: var(--muted);
+  border-left: 5px solid var(--primary);
+}
+.stat h3 { margin: 0 0 4px; font-size: 36px; color: var(--text); }
+
+/* ---------- Messages ---------- */
+.error { color: var(--danger); font-size: 13px; }
+.success { color: var(--success); font-size: 13px; }
+small.error { display: block; }
